@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-if是条件渲染满足条件则渲染元素不满足条件直接不渲染元素，v-show是控制display属性，不满足条件的时候display：none -->
+    <div id="app">
+        <h2 v-if="isShow" class="aa">{{msg}}</h2>
+        <hr/>
+        <h2 v-show="isShow" class="bb">{{msg}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '那你快点卡',
+                isShow: true
+            }
+        })
+    </script>
+</body>
+
+</html>
