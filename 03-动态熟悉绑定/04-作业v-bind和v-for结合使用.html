@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(m,index) in movies" @click="changeColor(index)">{{index}}-{{m}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                movies: ['哪吒', '复仇者联盟4', '火影', '大话西游'],
+                isactive: false
+            },
+            methods: {
+                changeColor(index) {
+                    let lis = document.querySelectorAll('li')
+                    let lens = lis.length
+                    for (let i = 0; i < lens; i++) {
+                        lis.c
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

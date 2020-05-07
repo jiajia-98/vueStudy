@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+        
+        .line {
+            border: 1px solid #ccc
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <h2 class="active">{{msg}}</h2>
+        <h2 class="line">{{msg}}</h2>
+        <hr/>
+        <h2 :class="active">{{msg}}</h2>
+        <h2 :class="{active:isActive,line:isLine}">{{msg}}</h2>
+        <button @click="toggole">点击切换</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好 佳佳',
+                active: 'active',
+                isActive: true,
+                isLine: true
+            },
+            methods: {
+                toggole() {
+                    this.isActive = !this.isActive;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

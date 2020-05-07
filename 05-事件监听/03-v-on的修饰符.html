@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- .stop修饰符阻止事件冒泡 -->
+        <div @click="clickdiv">
+            12314ssss
+            <button @click.stop="clickbtn">点击</button>
+        </div>
+        <!-- .prevent修饰符，阻止浏览器的默认行为 如form表单 a链接的跳转 -->
+        <form action="aabaidu">
+            <input type="submit" value="提交表单" @click.prevent="submitForm">
+        </form>
+        <!-- .enter取消点击某个键盘的按下 -->
+        <input type="text" @keyup.enter="keyup">
+        <!-- .once只执行一次 -->
+        <button @click.once="clickbtn2">按钮2</button>
+        <!-- .native监听组件根元素的原生事件 -->
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                clickdiv() {
+                    console.log('点击了div');
+
+                },
+                clickbtn() {
+                    console.log('点击了button');
+
+                },
+                submitForm() {
+                    console.log('form表单点击提交');
+
+                },
+                keyup() {
+                    console.log('键盘发生了keyup');
+
+                },
+                clickbtn2() {
+                    console.log('点击了按钮2');
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

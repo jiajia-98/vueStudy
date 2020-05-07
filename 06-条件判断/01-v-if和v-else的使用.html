@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-if="isShow">
+            <div>123123</div>
+            <div>123123</div>
+            <div>123123</div>
+            {{msg}}
+        </h2>
+        <h2 v-else>当isShow为false的时候显示w</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '鹤龙六路',
+                isShow: true
+            }
+        })
+    </script>
+</body>
+
+</html>

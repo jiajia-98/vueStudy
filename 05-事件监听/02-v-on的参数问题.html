@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前的count值为{{count}}</h2>
+        <button @click="handle1">按钮1</button>
+        <button @click="handle1(123)">按钮2</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                handle1(a) {
+                    console.log(a);
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

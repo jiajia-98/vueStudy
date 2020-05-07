@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 :style="[baseStyle,baseStyle2]">{{msg}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好绑定style数组',
+                baseStyle: {
+                    background: '#ccc'
+                },
+                baseStyle2: {
+                    fontSize: '50px'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

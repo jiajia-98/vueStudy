@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{msg}}</h2>
+        <img :src="imgUrl" alt="">
+        <a :href="aHref">百度一下</a>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '哈喽啊 jiajia',
+                imgUrl: 'https://img.alicdn.com/imgextra/i1/2645215035/TB2y.PZcGQoBKNjSZJnXXaw9VXa_!!2645215035-0-beehive-scenes.jpg_300x300.jpg',
+                aHref: 'http://www.baidu.com'
+
+            }
+        })
+    </script>
+</body>
+
+</html>
