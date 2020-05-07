@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movies" :key="index" :class="{active:isActive===index}" @click="handleClick(index)">{{item}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                movies:['海王','哪吒','火影','海贼'],
+                isActive:0
+            },
+            methods:{
+                handleClick(index) {
+                    this.isActive=index
+                }
+            }
+        })
+    </script>
+</body>
+</html>

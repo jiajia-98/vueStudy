@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- key 属性的绑定有利于提高遍历的效率，例如在数组中B和C之间插入一个F 如果不绑定唯一的一一对应的key 那么数据绑定的时候就会在F替代之前C的位置，并且后面的依次修改对应关系，效率较低 但是绑定key之后，Diff算法渲染虚拟dom到真实dom的时候就会对比数组和之前的不同，并在B,C 之间新增加一个 Key-value 属性，其他对应的属性绑定不会修改，提高渲染效率 -->
+        <ul>
+            <li v-for="item in letters" :key="item">{{item}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                letters:['A','B','C','D','E']
+            }
+        })
+    </script>
+</body>
+</html>

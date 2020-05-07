@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            width: 100px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="books.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in books">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.price | showPrice}}</td>
+                        <td>
+                            <button @click="sub(index)" :disabled="item.count <= 1">-</button>
+                            {{item.count}}
+                            <button @click="add(index)">+</button>
+                        </td>
+                        <td><button @click="handleRemove(index)">移除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>书籍的总价为：{{totalPrice | showPrice}}</h3>
+        </div>
+        <h2 v-else>购物车为空</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    {
+                        id: 1,
+                        name: '算法入门',
+                        date: '2017-9',
+                        price: 99.00,
+                        count: 1
+                    },
+                    {
+                        id: 2,
+                        name: '算法入门',
+                        date: '2016-9',
+                        price: 29.00,
+                        count: 1
+                    },
+                    {
+                        id: 3,
+                        name: '算法入门',
+                        date: '2014-9',
+                        price: 69.00,
+                        count: 1
+                    },
+                    {
+                        id: 4,
+                        name: '算法入门',
+                        date: '2017-11',
+                        price: 88.00,
+                        count: 1
+                    }
+                ]
+            },
+            filters: {
+                showPrice(price) {
+                    return '￥' + price.toFixed(2)
+                }
+            },
+            computed:{
+                totalPrice() {
+                    let total = 0
+                    // for(let i=0;i<this.books.length;i++){
+                    //     total += this.books[i].price*this.books[i].count
+                    // }
+                    // for(let item of this.books){
+                    //     total += item.price*item.count
+                    // }
+                    //reduce 
+
+                    return total
+                }
+            },
+            methods: {
+                add(index) {
+                    this.books[index].count++
+                },
+                sub(index) {
+                    this.books[index].count--
+                },
+                handleRemove(index) {
+                    this.books.splice(index, 1)
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>

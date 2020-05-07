@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in letters" :key="index">{{item}}</li>
+        </ul>
+        <button @click="btnClick">按 钮</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                letters:['a','b','c','d']
+            },
+            methods:{
+                btnClick() {
+                    
+                    //可以响应的数组方法
+                    //1.push 在数组元素最后添加
+                    // this.letters.push('aa','bb')
+                    //2.pop 在数组元素最后删除
+                    //3.unshift 在数组元素前面添加
+                    //4.shift 在数组元素前面删除
+                    //5.splice() 方法3个参数 //第一个参数，要删除的元素的起始位置：起始下标 第二个参数 要删除的元素的个数 第三个参数 要替换的元素
+                    //this.letters.splice(1,3,'m','n','l')
+                    this.letters.splice(1,0,'x','y')
+                    //6.sort
+                    //7.reverse
+
+                    //不能响应的数组方法
+                    //通过索引修改数组元素
+                    // this.letters[0]='aaaa'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
