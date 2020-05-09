@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-comp1></my-comp1>
+        <my-comp2></my-comp2>
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // //1.创建组件构造器
+        // const comp1 = Vue.extend({
+        //     template: `
+        //     <div>
+        //         <div>我是标题</div>
+        //         <div>我是内容</div>
+        //     </div>
+        //     `
+        // })
+        // //2.全局注册组件
+        // Vue.component('my-comp1', comp1)
+
+        // 语法糖就是 省去了Vue.extend() 的步骤，用一个对象来替代
+        Vue.component('my-comp1', {
+            template: `
+            <div>
+                <div>我是标题1</div>
+                <div>我是内容1</div>
+            </div>
+            `
+        })
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                'my-comp2': {
+                    template: `
+                        <div>
+                            <div>我是标题2</div>
+                            <div>我是内容2</div>
+                        </div>
+                        `
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

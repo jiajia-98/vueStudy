@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 在开发中往往一些数据需要从上层传递到下层 比如在一个页面中请求到很多的数据，其中一部分数据 并非整个大页面来展示的，而是需要下面的子组件来展示，这时候我们并不需要 在子组件中再次发起网络请求，而是直接让父组件的数据传递给子组件 -->
+    <!-- 父子组件之间传值  通过props向子组件传递数据 通过事件向父组件发送消息 -->
+    <div id="app">
+
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

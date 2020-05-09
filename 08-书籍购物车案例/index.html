@@ -9,7 +9,7 @@
         table {
             border-collapse: collapse;
         }
-
+        
         th,
         td {
             border: 1px solid #ccc;
@@ -41,8 +41,7 @@
                         <td>{{item.date}}</td>
                         <td>{{item.price | showPrice}}</td>
                         <td>
-                            <button @click="sub(index)" :disabled="item.count <= 1">-</button>
-                            {{item.count}}
+                            <button @click="sub(index)" :disabled="item.count <= 1">-</button> {{item.count}}
                             <button @click="add(index)">+</button>
                         </td>
                         <td><button @click="handleRemove(index)">移除</button></td>
@@ -59,54 +58,53 @@
         const vm = new Vue({
             el: '#app',
             data: {
-                books: [
-                    {
-                        id: 1,
-                        name: '算法入门',
-                        date: '2017-9',
-                        price: 99.00,
-                        count: 1
-                    },
-                    {
-                        id: 2,
-                        name: '算法入门',
-                        date: '2016-9',
-                        price: 29.00,
-                        count: 1
-                    },
-                    {
-                        id: 3,
-                        name: '算法入门',
-                        date: '2014-9',
-                        price: 69.00,
-                        count: 1
-                    },
-                    {
-                        id: 4,
-                        name: '算法入门',
-                        date: '2017-11',
-                        price: 88.00,
-                        count: 1
-                    }
-                ]
+                books: [{
+                    id: 1,
+                    name: '算法入门',
+                    date: '2017-9',
+                    price: 99.00,
+                    count: 1
+                }, {
+                    id: 2,
+                    name: '算法入门',
+                    date: '2016-9',
+                    price: 29.00,
+                    count: 1
+                }, {
+                    id: 3,
+                    name: '算法入门',
+                    date: '2014-9',
+                    price: 69.00,
+                    count: 1
+                }, {
+                    id: 4,
+                    name: '算法入门',
+                    date: '2017-11',
+                    price: 88.00,
+                    count: 1
+                }]
             },
             filters: {
                 showPrice(price) {
                     return '￥' + price.toFixed(2)
                 }
             },
-            computed:{
+            computed: {
                 totalPrice() {
-                    let total = 0
+                    // let total = 0
                     // for(let i=0;i<this.books.length;i++){
                     //     total += this.books[i].price*this.books[i].count
                     // }
                     // for(let item of this.books){
                     //     total += item.price*item.count
                     // }
-                    //reduce 
-
-                    return total
+                    // return total
+                    //reduce 对数组中所有的内容进行汇总
+                    return this.books.reduce((prevalue, n) => {
+                        // console.log(prevalue);
+                        // console.log(n);
+                        return prevalue + n.price * n.count
+                    }, 0)
                 }
             },
             methods: {
@@ -122,6 +120,11 @@
             },
 
         })
+        let nums = [12, 200, 30, 152, 68, 111]
+            // let newnums = nums.filter(function(n) {
+            //     return n > 100
+            // })
+            // console.log(newnums);
     </script>
 </body>
 

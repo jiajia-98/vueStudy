@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 什么时候使用箭头函数 
+        // 1.1 把一个函数作为另一个函数的参数传递进去的时候 使用箭头函数 
+
+        setTimeout(function () {
+            console.log(this);//window
+
+        }, 100)
+        setTimeout(() => {
+            console.log(this);//window
+
+        }, 100)
+        // 箭头函数的this 是如何查找的？ =》向外层作用域中一层层中查找 有this定义的作用域 引用的是最近作用域中的this
+        const obj = {
+            aaa() {
+                console.log(this);
+                
+                setTimeout(function () {
+                    console.log(this);//window
+
+                })
+                setTimeout(() => {
+                    console.log(this);//obj
+                })
+
+            }
+        }
+        obj.aaa()
+    </script>
+</body>
+
+</html>

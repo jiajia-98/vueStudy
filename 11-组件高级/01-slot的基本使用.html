@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <comp></comp>
+        <comp>
+            <div>123</div>
+        </comp>
+        <comp>
+            <div>123</div>
+            <h2>12312312ddddd</h2>
+        </comp>
+        <comp>
+            <button>按钮</button>
+        </comp>
+    </div>
+
+
+    <script src="../js/vue.js"></script>
+    <template id="comp">
+        <div>
+            <h2>我是子组件标题</h2>
+            <p>我是子组件内容</p>
+            <slot></slot>
+        </div>
+    </template>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            components: {
+                comp: {
+                    template: '#comp'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
