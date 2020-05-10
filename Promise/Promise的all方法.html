@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Promise.all([
+            new Promise((resolve,reject) => {
+                $ajax({
+                    url:'url1',
+                    success:function(data){
+                        resolve(data)
+                    }
+                })
+            }),
+            new Promise((resolve,reject) => {
+                $ajax({
+                    url:'url2',
+                    success:function(data){
+                        resolve(data)
+                    }
+                })
+            })
+        ]).then(res => {
+            //就会在两次请求都完成后进行事件的处理
+        })
+    </script>
+</body>
+</html>

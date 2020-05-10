@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Promise 中的参数是一个回调函数
+        // 这个回调函数中存在两个参数resolve（解决）reject（拒绝驳回）
+        // 成功的时候可以在异步请求中传入一个resolve方法，放入成功数据，并通过then方法传入一个回调函数接受这些数据并进行处理
+        // 失败的时候可以在异步请求中传入一个reject方法，放入错误数据，并通过catch 方法传入一个回调函数并打印这些错误信息
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                //成功的时候
+                resolve('hello jiajia')
+                //失败的时候
+                reject('error message')
+            }, 1000)
+        }).then((data) => {
+            console.log(data);
+            console.log(data);
+            console.log(data);
+        }).catch(err=>{
+            console.log(err);
+        })
+    </script>
+</body>
+
+</html>
